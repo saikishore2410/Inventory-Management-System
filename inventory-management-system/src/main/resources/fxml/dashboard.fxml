@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="400.0" prefWidth="600.0" fx:controller="com.example.inventory.controllers.DashboardController">
+    <children>
+        <VBox spacing="10.0" layoutX="20.0" layoutY="20.0">
+            <Label text="Inventory Dashboard" styleClass="header"/>
+            <TableView fx:id="itemTable">
+                <columns>
+                    <TableColumn fx:id="itemNameColumn" text="Item Name"/>
+                    <TableColumn fx:id="quantityColumn" text="Quantity"/>
+                    <TableColumn fx:id="vendorColumn" text="Vendor"/>
+                </columns>
+            </TableView>
+            <Button text="Add Item" onAction="#handleAddItem"/>
+            <Button text="View Vendors" onAction="#handleViewVendors"/>
+            <Button text="Check Low Stock" onAction="#handleCheckLowStock"/>
+        </VBox>
+    </children>
+</AnchorPane>

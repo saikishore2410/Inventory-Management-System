@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="400.0" prefWidth="600.0">
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <Label text="Vendor Management" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        
+        <Label text="Vendor Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="vendorNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Contact Info:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="contactInfoField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Button text="Add Vendor" fx:id="addVendorButton" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Button text="Update Vendor" fx:id="updateVendorButton" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <TableView fx:id="vendorTable" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+            <columns>
+                <TableColumn text="Vendor ID" />
+                <TableColumn text="Vendor Name" />
+                <TableColumn text="Contact Info" />
+            </columns>
+        </TableView>
+    </GridPane>
+</AnchorPane>
