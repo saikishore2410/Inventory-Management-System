@@ -265,7 +265,7 @@ public class InventoryController {
     private void deleteItem() {
         Item x = items.getSelectionModel().getSelectedItem();
         if (x == null) { showError("Select an item first."); return; }
-        if (!confirm("Delete Item", "Delete "" + x.getName() + ""? This cannot be undone.")) return;
+        if (!confirm("Delete Item", "Delete \\\"" + x.getName() + "\\"? This cannot be undone.")) return;
         try { service.removeItem(x.getId()); refresh(); status.setText("Item deleted."); }
         catch (Exception e) { showError(e.getMessage()); }
     }
@@ -314,7 +314,7 @@ public class InventoryController {
     private void deleteVendor() {
         Vendor x = vendors.getSelectionModel().getSelectedItem();
         if (x == null) { showError("Select a vendor first."); return; }
-        if (!confirm("Delete Vendor", "Delete "" + x.getName() + ""?")) return;
+        if (!confirm("Delete Vendor", "Delete \\\"" + x.getName() + "\\"?")) return;
         try { service.removeVendor(x.getId()); refresh(); status.setText("Vendor deleted."); }
         catch (Exception e) { showError(e.getMessage()); }
     }
