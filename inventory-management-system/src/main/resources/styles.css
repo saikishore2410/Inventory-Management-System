@@ -1,0 +1,26 @@
+.root{ -fx-font-family:"Segoe UI"; -fx-background-color:#f5f7fb; -fx-text-fill:#172033; }
+.label{ -fx-text-fill:#172033; }
+.header{ -fx-background-color:#172033; -fx-padding:22 26 20 26; }
+.header-title{ -fx-font-size:26px; -fx-font-weight:bold; -fx-text-fill:white; }
+.header-subtitle{ -fx-font-size:13px; -fx-text-fill:#cbd5e1; }
+.status{ -fx-text-fill:#475569; -fx-font-size:12px; }
+.card{ -fx-background-color:white; -fx-background-radius:10; -fx-border-color:#e2e8f0; -fx-border-radius:10; -fx-padding:16; }
+.card-title{ -fx-font-size:12px; -fx-text-fill:#64748b; }
+.card-value{ -fx-font-size:24px; -fx-font-weight:bold; -fx-text-fill:#172033; }
+.toolbar{ -fx-padding:14 0 10 0; }
+.button{ -fx-background-color:#2563eb; -fx-text-fill:white; -fx-background-radius:7; -fx-padding:9 14; -fx-cursor:hand; }
+.button:hover{ -fx-background-color:#1d4ed8; }
+.secondary-button{ -fx-background-color:#e2e8f0; -fx-text-fill:#172033; }
+.danger-button{ -fx-background-color:#dc2626; }
+.text-field,.combo-box{ -fx-background-color:white; -fx-border-color:#cbd5e1; -fx-border-radius:7; -fx-background-radius:7; -fx-padding:9; }
+.table-view{ -fx-background-color:white; -fx-border-color:#e2e8f0; -fx-border-radius:8; -fx-background-radius:8; }
+.table-view .column-header-background{ -fx-background-color:#eef2f7; }
+.table-view .column-header,.table-view .filler{ -fx-size:38; -fx-border-color:transparent transparent #dbe2ea transparent; }
+.table-row-cell{ -fx-cell-size:38px; }
+.tab-pane{ -fx-background-color:transparent; }
+.tab-pane .tab-header-area{ -fx-padding:8 0 0 0; }
+.tab{ -fx-background-color:#e2e8f0; -fx-padding:9 18; }
+.tab:selected{ -fx-background-color:#2563eb; }
+.tab:selected .tab-label{ -fx-text-fill:white; -fx-font-weight:bold; }
+.low-stock{ -fx-background-color:#fff7ed; }
+.low-stock .text{ -fx-fill:#9a3412; }
