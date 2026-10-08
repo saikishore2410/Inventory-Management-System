@@ -11,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import java.util.List;
 
 public class InventoryController {
@@ -25,6 +24,8 @@ public class InventoryController {
     private final Label lowStockCount = new Label("0");
     private final Label totalUnits = new Label("0");
     private final Label status = new Label("Ready");
+    private FilteredList<Item> filteredItems;
+    private FilteredList<Vendor> filteredVendors;
 
     public InventoryController(InventoryService service) {
         this.service = service;
@@ -190,19 +191,19 @@ public class InventoryController {
     }
 
     private void filterItems(String query) {
-        if (items.getItems() instanceof FilteredList<Item> filtered) {
-            filtered.setPredicate(x -> query == null || query.isBlank()
-                || x.getName().toLowerCase().contains(query.toLowerCase())
-                || String.valueOf(x.getId()).equals(query.trim()));
-        }
+        if (filteredItems == null) return;
+        String q = query == null ? "" : query.trim().toLowerCase();
+        filteredItems.setPredicate(x -> q.isBlank()
+            || x.getName().toLowerCase().contains(q)
+            || String.valueOf(x.getId()).equals(q));
     }
 
     private void filterVendors(String query) {
-        if (vendors.getItems() instanceof FilteredList<Vendor> filtered) {
-            filtered.setPredicate(x -> query == null || query.isBlank()
-                || x.getName().toLowerCase().contains(query.toLowerCase())
-                || x.getContactInfo().toLowerCase().contains(query.toLowerCase()));
-        }
+        if (filteredVendors == null) return;
+        String q = query == null ? "" : query.trim().toLowerCase();
+        filteredVendors.setPredicate(x -> q.isBlank()
+            || x.getName().toLowerCase().contains(q)
+            || x.getContactInfo().toLowerCase().contains(q));
     }
 
     private boolean confirm(String title, String message) {
@@ -322,8 +323,8 @@ public class InventoryController {
         try {
             List<Item> itemList = service.getAllItems();
             List<Vendor> vendorList = service.getAllVendors();
-            FilteredList<Item> filteredItems = new FilteredList<>(FXCollections.observableArrayList(itemList), x -> true);
-            FilteredList<Vendor> filteredVendors = new FilteredList<>(FXCollections.observableArrayList(vendorList), x -> true);
+            filteredItems = new FilteredList<>(FXCollections.observableArrayList(itemList), x -> true);
+            filteredVendors = new FilteredList<>(FXCollections.observableArrayList(vendorList), x -> true);
             items.setItems(filteredItems);
             vendors.setItems(filteredVendors);
             filterItems(itemSearch.getText());
